@@ -106,5 +106,30 @@ function enable(){
 function countingMoves(){
   moves++;
   counter.innerHTML = moves;
+  if (moves == 1) {
+    second = 0;
+    minute = 0;
+    hour = 0;
+    startTimer();
+  }
+}
 
+var second = 0;
+var minute = 0;
+var hour = 0;
+var timer = document.querySelector(".timer");
+var interval;
+function startTimer(){
+  interval = setInterval(function(){
+    timer.innerHTML = minute + "minute(s) " + second + "second(s)";
+    second++;
+    if (second == 60) {
+      minute++;
+      second = 0;
+    }
+    if (minute == 60) {
+      hour++;
+      minute = 0;
+    }
+  }, 1000);
 }
