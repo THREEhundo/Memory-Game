@@ -44,3 +44,27 @@ var showCard = function (){
   this.classList.toggle("show");
   this.classList.toggle("disabled");
 };
+
+function openCards() {
+  faceUpCards.push(this);
+  var lengthOfCard = faceUpCards.length;
+  if(lengthOfCard == 2) {
+    //add function for counting moves
+    countingMoves();
+    if (faceUpCards[0].type === faceUpCards[1].type) {
+      //add match classes
+      match();
+    } else {
+      //remove match classes
+      unmatched();
+    }
+  }
+};
+
+function match(){
+  faceUpCards[0].classList.add("match", "disabled");
+  faceUpCards[1].classList.add("match", "disabled");
+  faceUpCards[0].classList.remove("show", "open");
+  faceUpCards[1].classList.remove("show", "open");
+  faceUpCards = [];
+}
