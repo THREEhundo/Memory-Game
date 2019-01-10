@@ -43,7 +43,9 @@ function startGame(){
       });
       cards[i].classList.remove("show", "open", "match", "disabled");
   }
-  
+  moves = 0;
+  counter.innerHTML = moves;
+
 }
 
 var showCard = function (){
@@ -99,4 +101,10 @@ function enable(){
       matchedCard[i].classList.add("disabled");
     }
   });
+}
+
+function countingMoves(){
+  moves++;
+  counter.innerHTML = moves;
+
 }
