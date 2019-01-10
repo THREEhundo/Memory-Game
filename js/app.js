@@ -46,6 +46,12 @@ function startGame(){
   moves = 0;
   counter.innerHTML = moves;
 
+  second = 0;
+  minute = 0;
+  hour = 0;
+  var timer = document.querySelector(".timer");
+  timer.innerHTML = "0 minutes 0 seconds";
+  clearInterval(interval);
 }
 
 var showCard = function (){
