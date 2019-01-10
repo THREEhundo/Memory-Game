@@ -46,6 +46,10 @@ function startGame(){
   moves = 0;
   counter.innerHTML = moves;
 
+  for (var i = 0; i < stars.length; i++) {
+    stars[i].style.visibility = "visible";
+  }
+
   second = 0;
   minute = 0;
   hour = 0;
@@ -118,6 +122,20 @@ function countingMoves(){
     hour = 0;
     startTimer();
   }
+  if (moves > 8 && moves < 12) {
+    for (var i = 0; i < 3; i++) {
+      if (i > 1) {
+        stars[i].style.visibility = "collapse";
+      }
+    }
+  } else if (moves > 13) {
+    for (var i = 0; i < 3; i++) {
+      if(i > 0) {
+        stars[i].style.visibility = "collapse";
+      }
+    }
+  }
+
 }
 
 var second = 0;
