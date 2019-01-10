@@ -168,7 +168,7 @@ h1 {
    overflow: auto;
  }
 
-  .visible {
+  .show {
     visibility: visible;
     opacity: 100;
   }

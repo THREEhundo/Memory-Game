@@ -68,3 +68,28 @@ function match(){
   faceUpCards[1].classList.remove("show", "open");
   faceUpCards = [];
 }
+
+function unmatched(){
+  disable();
+  setTimeout(function(){
+    faceUpCards[0].classList.remove("show", "open", )
+    faceUpCards[1].classList.remove("show", "open", )
+    enable();
+    faceUpCards = [];
+  }, 1000);
+}
+
+function disable(){
+  Array.prototype.filter.call(cards, function(card){
+    card.classList.add('disabled');
+  });
+}
+
+function enable(){
+  Array.prototype.filter.call(cards, function(card){
+    card.classList.remove('disabled');
+    for (var i = 0; i < matchedCard.length; i++) {
+      matchedCard[i].classList.add("disabled");
+    }
+  });
+}
