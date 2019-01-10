@@ -36,7 +36,14 @@ function startGame(){
 
   cards = shuffle(cards);
 
+  for (var i = 0; i < cards.length; i++) {
+      deck.innerHTML = "";
+      [].forEach.call(cards, function(item) {
+        deck.appendChild(item);
+      });
+      cards[i].classList.remove("show", "open", "match", "disabled");
   }
+  
 }
 
 var showCard = function (){
