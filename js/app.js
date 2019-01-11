@@ -70,7 +70,7 @@ function openCards() {
   if(lengthOfCard == 2) {
     //add function for counting moves
     countingMoves();
-    if (faceUpCards[0].type === faceUpCards[1].type) {
+    if (faceUpCards[0].dataset.card === faceUpCards[1].dataset.card) {
       //add match classes
       match();
     } else {
@@ -157,3 +157,35 @@ function startTimer(){
     }
   }, 1000);
 }
+
+function winner(){
+  if (matchedCard.length == 16) {
+    clearInterval(interval);
+    finalTime = timer.innerHTML;
+    popUp.classList.add("show");
+    var starRating = document.querySelector(".stars").innerHTML;
+    document.getElementById("totalMoves").innerHTML = moves;
+    document.getElementById("totalTime").innerHTML = finalTime;
+    document.getElementById("starRating").innerHTML = starRating;
+    closePopUp();
+  };
+}
+
+function closePopUp(){
+  closeButton.addEventListener("click", function(z){
+    popUp.classList.remove("show");
+    startGame();
+  });
+}
+
+function playAgain(){
+  popUp.classList.remove("show");
+  startGame();
+}
+
+for (var i = 0; i < cards.length; i++) {
+  card = cards[i];
+  card.addEventListener("click", showCard);
+  card.addEventListener("click", openCards);
+  card.addEventListener("click", winner);
+};
